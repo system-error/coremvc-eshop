@@ -1,0 +1,12 @@
+﻿@page
+@model eshop.Views.Shop.IndexModel
+@{
+    
+}
+
+<h1>Catalog</h1>
+
+@foreach (var product in ViewBag.products)
+{
+    <div>@product.Name [@product.Category.Name]</div>
+}
