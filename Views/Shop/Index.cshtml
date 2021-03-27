@@ -1,12 +1,24 @@
 ﻿@page
 @model eshop.Views.Shop.IndexModel
 @{
-    
+
 }
 
 <h1>Catalog</h1>
 
-@foreach (var product in ViewBag.products)
-{
-    <div>@product.Name [@product.Category.Name]</div>
-}
+<div class="card-group">
+    @foreach (var product in ViewBag.products)
+    {
+
+        <div class="card" style="width: 18rem;">
+            <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@product.Name</h5>
+                <p class="card-text">@product.Description</p>
+                <p>Category: @product.Category.Name</p>
+                <a href="#" class="btn btn-primary"></a>
+            </div>
+        </div>
+
+    }
+</div>
