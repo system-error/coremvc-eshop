@@ -29,5 +29,23 @@ namespace eshop.Controllers
             ViewBag.products = products;
             return View();
         }
+
+        public IActionResult Product(long id)
+        {
+            Product product = _db.Products.Find(id);
+            ViewBag.product = product;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult UpdateProduct(long id, string productName, string description)
+        {
+            // return Content($"{id} {productName}");
+            Product product = _db.Products.Find(id);
+            product.Name = productName;
+            product.Description = description;
+            _db.SaveChanges();
+            return RedirectToAction("Products", "Admin");
+        }
     }
 }
