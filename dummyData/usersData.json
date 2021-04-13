@@ -1,0 +1,23 @@
+[
+  {
+    "active": true,
+    "password": "test",
+    "roles": "ROLE_CUSTOMER",
+    "userName": "customer",
+    "email": "test@test.gr"
+  },
+  {
+    "active": true,
+    "password": "11",
+    "roles": "ROLE_USER",
+    "userName": "user",
+    "email": "test1@test1.com"
+  },
+  {
+    "active": true,
+    "password": "22",
+    "roles": "ROLE_ADMIN,ROLE_USER",
+    "userName": "admin",
+    "email": "test2@test2.com"
+  }
+]

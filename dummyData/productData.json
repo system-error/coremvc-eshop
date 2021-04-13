@@ -1,0 +1,94 @@
+[
+  {
+    "Id":  1, 
+    "Name": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    "Description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    "Price": 109.95,
+    "Image": "laptop1.png",
+    "Stock": 10,
+    "Category": { "Id": 1 }
+  },
+  {
+    "Id": 2,
+    "Name": "Mens Casual Premium Slim Fit T-Shirts ",
+    "Description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And SolId stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+    "Image": "mens1.png",
+    "Price": 22.3,
+    "Stock": 25,
+    "Category": { "Id": 3 }
+
+  },
+  {
+    "Id": 3,
+    "Name": "Mens Cotton Jacket",
+    "Description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+    "Image": "mens-jacket.png",
+    "Price": 55.99,
+    "Stock": 25,
+    "Category": { "Id": 3 }
+  },
+  {
+    "Id": 4,
+    "Name": "Mens Casual Slim Fit",
+    "Description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product Description.",
+    "Image": "slim-Fit.png",
+    "Price": 15.99,
+    "Stock": 5,
+    "Category": { "Id": 3 }
+
+  },
+  {
+    "Id": 5,
+    "Name": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+    "Description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+    "Image": "brac1.png",
+    "Price": 695,
+    "Stock": 58,
+    "Category": { "Id": 2 }
+  },
+  {
+    "Id": 6,
+    "Name": "SolId Gold Petite Micropave ",
+    "Description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+    "Image": "brac2.png",
+    "Price": 168,
+    "Stock": 60,
+    "Category": { "Id": 2 }
+  },
+  {
+    "Id": 7,
+    "Name": "White Gold Plated Princess",
+    "Description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+    "Image": "earing.png",
+    "Price": 9.99,
+    "Stock": 56,
+    "Category": { "Id": 2 }
+  },
+  {
+    "Id": 8,
+    "Name": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+    "Description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+    "Image": "ring1.png",
+    "Price": 10.99,
+    "Stock": 3,
+    "Category": { "Id": 2 }
+  },
+  {
+    "Id": 9,
+    "Name": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
+    "Description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
+    "Image": "wd-hard-disk.png",
+    "Price": 64,
+    "Stock": 80,
+    "Category": { "Id": 1 }
+  },
+  {
+    "Id": 10,
+    "Name": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+    "Description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it Ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+    "Image": "sandisk.png",
+    "Price": 109,
+    "Stock": 50,
+    "Category": { "Id": 1 }
+  }
+]
