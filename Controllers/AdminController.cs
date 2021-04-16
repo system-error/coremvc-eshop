@@ -52,8 +52,6 @@ namespace eshop.Controllers
             {
                 Directory.CreateDirectory(path);
             }
-
-            // return Content($"{id} {productName}");
             Product product = _db.Products.Find(id);
             product.Name = productName;
             product.Description = description;
@@ -68,7 +66,6 @@ namespace eshop.Controllers
                     productImage.CopyTo(stream);
                     product.Image = fileName;
                 }
-                product.Image = product.Image;
             }   
             _db.SaveChanges();
             return RedirectToAction("Products", "Admin");
