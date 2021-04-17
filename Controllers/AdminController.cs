@@ -44,54 +44,81 @@ namespace eshop.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateProduct(long id, string productName, string description, string productPrice, int productStock, IFormFile productImage)
+        public IActionResult UpdateProduct(long id, string productName, string description, string productPrice, int productStock)
         {
 
-            string path = Path.Combine(this._environment.WebRootPath, "uploads/images");
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
             Product product = _db.Products.Find(id);
             product.Name = productName;
             product.Description = description;
             product.Stock = productStock;
             product.Price = decimal.Parse(productPrice.Replace(".",","));
-            if (productImage != null)
-            {
-                
-                string fileName = Path.GetFileName(productImage.FileName);
-                using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
-                {
-                    productImage.CopyTo(stream);
-                    product.Image = fileName;
-                }
-            }   
+            
             _db.SaveChanges();
             return RedirectToAction("Products", "Admin");
         }
 
-        
+        [HttpPost]
+        public IActionResult AddImage(long id, IFormFile productImage)
+        {
+            Product product = _db.Products.Find(id);
+            string path = Path.Combine(this._environment.WebRootPath, "uploads/images/p/"+id);
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            if ((productImage.ContentType.ToLower().Equals("image/jpg") || productImage.ContentType.ToLower()
+                                                                           .Equals("image/jpeg")
+                                                                       || productImage.ContentType.ToLower()
+                                                                           .Equals("image/jpeg")
+                                                                       || productImage.ContentType.ToLower()
+                                                                           .Equals("image/pjpeg")
+                                                                       || productImage.ContentType.ToLower()
+                                                                           .Equals("image/gif")
+                                                                       || productImage.ContentType.ToLower()
+                                                                           .Equals("image/x-png")
+                                                                       || productImage.ContentType.ToLower()
+                                                                           .Equals("image/png")) && productImage != null)
+            {
+                
+               
+
+                    string fileName = Path.GetFileName(productImage.FileName);
+                    using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                    {
+                        productImage.CopyTo(stream);
+                        product.Image = fileName;
+                    }
+            }
+            else
+            {
+                product.Image = "";
+            }
+
+            _db.SaveChanges();
+            return RedirectToAction("Product", "Admin", new { id });
+
+        }
+
+
+
         public IActionResult AddProduct()
         {
             List<Category> categories = _db.Categories.ToList();
-            Product product = new Product();
-            ViewBag.product = product;
             ViewBag.categories = categories;
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult AddProduct(string productName, string description, string productPrice, int productStock, IFormFile productImage,int productCategory)
+        public IActionResult AddProduct(string productName, string description, string productPrice, int productStock,int productCategory, IFormFile productImage)
         {
-        
-            string path = Path.Combine(this._environment.WebRootPath, "uploads/images");
+            Product prod = _db.Products.Last();
+            string path = Path.Combine(this._environment.WebRootPath, "uploads/images/p/"+prod.Id+1);
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-        
             Product product = new Product();
             product.Name = productName;
             product.Description = description;
@@ -99,26 +126,39 @@ namespace eshop.Controllers
             
             product.Category = _db.Categories.Find(productCategory);
             product.Price = decimal.Parse(productPrice.Replace(".", ","));
-            if (productImage != null)
+            if ((productImage.ContentType.ToLower().Equals("image/jpg") || productImage.ContentType.ToLower()
+                                                                           .Equals("image/jpeg")
+                                                                       || productImage.ContentType.ToLower()
+                                                                           .Equals("image/jpeg")
+                                                                       || productImage.ContentType.ToLower()
+                                                                           .Equals("image/pjpeg")
+                                                                       || productImage.ContentType.ToLower()
+                                                                           .Equals("image/gif")
+                                                                       || productImage.ContentType.ToLower()
+                                                                           .Equals("image/x-png")
+                                                                       || productImage.ContentType.ToLower()
+                                                                           .Equals("image/png"))&& productImage != null)
             {
-        
-                string fileName = Path.GetFileName(productImage.FileName);
-                using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
-                {
-                    productImage.CopyTo(stream);
-                    product.Image = fileName;
-                }
+                
+
+                    string fileName = Path.GetFileName(productImage.FileName);
+                    using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                    {
+                        productImage.CopyTo(stream);
+                        product.Image = fileName;
+                    }
             }
             else
             {
                 product.Image = "";
             }
-            //TODO find the previous Id from the database and Add +1
-            //Maybe work without add if I have the id
-            _db.Add(product);
+
+            _db.Products.Add(product);
             _db.SaveChanges();
             return RedirectToAction("Products", "Admin");
         }
+
+        
 
 
     }

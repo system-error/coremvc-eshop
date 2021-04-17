@@ -2,45 +2,51 @@
     Layout = "_Admin";
 }
 
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Products</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Products</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                    <span data-feather="calendar"></span>
+                    This week
+                </button>
             </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                This week
-            </button>
         </div>
-    </div>
 
-    <h2>@ViewBag.product.Name</h2>
+        <h2>@ViewBag.product.Name</h2>
 
-    <form asp-controller="Admin" asp-action="UpdateProduct" method="post" enctype="multipart/form-data">
-        <input name="id" type="text" hidden value="@ViewBag.product.Id" />
-        <div class="form-group">
-            <label for="productName">Product Name</label>
-            <input type="text" class="form-control" id="productName" name="productName" value="@ViewBag.product.Name">
-        </div>
-        <div class="form-group">
-            <label for="description">Desription</label>
-            <textarea class="form-control" id="description" name="description">@ViewBag.product.Description</textarea>
-        </div>
-        <div class="form-group">
-            <label for="productPrice">Price</label>
-            <input type="text" class="form-control" id="productPrice" name="productPrice" value="@ViewBag.product.Price">
-        </div>
-        <div class="form-group">
-            <label for="productStock">Product Stock</label>
-            <input type="number" class="form-control" id="productStock" min="0" name="productStock" value="@ViewBag.product.Stock">
-        </div>
-        <div class="form-group">
-            <img src="~/uploads/images/@ViewBag.product.Image"/>
-            <input type="file" class="form-control" id="productImage" name="productImage" >
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</main>
+        <form asp-controller="Admin" asp-action="UpdateProduct" method="post">
+            <input name="id" type="text" hidden value="@ViewBag.product.Id" />
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" class="form-control" id="productName" name="productName" value="@ViewBag.product.Name">
+            </div>
+            <div class="form-group">
+                <label for="description">Desription</label>
+                <textarea class="form-control" id="description" name="description">@ViewBag.product.Description</textarea>
+            </div>
+            <div class="form-group">
+                <label for="productPrice">Price</label>
+                <input type="text" class="form-control" id="productPrice" name="productPrice" value="@ViewBag.product.Price">
+            </div>
+            <div class="form-group">
+                <label for="productStock">Product Stock</label>
+                <input type="number" class="form-control" id="productStock" min="0" name="productStock" value="@ViewBag.product.Stock">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <form asp-controller="Admin" asp-action="AddImage" method="post" enctype="multipart/form-data">
+            <input name="id" type="text" hidden value="@ViewBag.product.Id" />
+            <div class="form-group">
+                <img src="~/uploads/images/p/@ViewBag.product.Id/@ViewBag.product.Image"/>
+                <input type="file" class="form-control" id="productImage" name="productImage">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Image</button>
+        </form>
+        
+    </main>

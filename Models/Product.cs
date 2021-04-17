@@ -10,7 +10,8 @@ namespace roles.Models
 {
     public class Product
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
+        // [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
