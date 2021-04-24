@@ -22,7 +22,6 @@ namespace roles.Models
         public int Stock { get; set; }
 
         public string Image { get; set; }
-
         public Category Category { get; set; }
     }
 }
